@@ -1,0 +1,38 @@
+[
+  {
+    "screenId": "885d915de68a4412a4a0866217c64ca0",
+    "title": "Ana Sayfa",
+    "componentName": "AnaSayfa",
+    "file": "src/screens/AnaSayfa.tsx",
+    "buttons": 7,
+    "inputs": 0,
+    "links": 0
+  },
+  {
+    "screenId": "ee9c329d50b1469eb248bcba22baa341",
+    "title": "Boş Geçmiş Görünümü",
+    "componentName": "BosGecmisGorunumu",
+    "file": "src/screens/BosGecmisGorunumu.tsx",
+    "buttons": 6,
+    "inputs": 0,
+    "links": 0
+  },
+  {
+    "screenId": "410c82db34b74972b1b0a1bbd665a7e4",
+    "title": "İşlem Geçmişi Modalı",
+    "componentName": "IslemGecmisiModali",
+    "file": "src/screens/IslemGecmisiModali.tsx",
+    "buttons": 2,
+    "inputs": 0,
+    "links": 0
+  },
+  {
+    "screenId": "b37d16e3f45747edb55c93ec5c8ac79a",
+    "title": "Tema Ayarları Overlay",
+    "componentName": "TemaAyarlariOverlay",
+    "file": "src/screens/TemaAyarlariOverlay.tsx",
+    "buttons": 5,
+    "inputs": 0,
+    "links": 0
+  }
+]
