@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="tr"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Sayaç Uygulaması - İşlem Geçmişi</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "on-secondary-fixed": "#002113",
+                        "tertiary-container": "#cf2c30",
+                        "on-error": "#690005",
+                        "on-tertiary-container": "#ffecea",
+                        "on-primary-fixed": "#00174b",
+                        "secondary": "#4edea3",
+                        "primary-fixed-dim": "#b4c5ff",
+                        "on-tertiary": "#68000a",
+                        "error": "#ffb4ab",
+                        "background": "#0b1326",
+                        "on-primary-container": "#eeefff",
+                        "on-primary-fixed-variant": "#003ea8",
+                        "surface-container-low": "#131b2e",
+                        "inverse-on-surface": "#283044",
+                        "surface-container-high": "#222a3d",
+                        "tertiary": "#ffb3ad",
+                        "secondary-fixed-dim": "#4edea3",
+                        "on-surface": "#dae2fd",
+                        "outline": "#8d90a0",
+                        "outline-variant": "#434655",
+                        "primary-container": "#2563eb",
+                        "on-tertiary-fixed": "#410004",
+                        "surface-tint": "#b4c5ff",
+                        "secondary-container": "#00a572",
+                        "surface-container-highest": "#2d3449",
+                        "on-error-container": "#ffdad6",
+                        "surface": "#0b1326",
+                        "tertiary-fixed": "#ffdad7",
+                        "surface-container-lowest": "#060e20",
+                        "tertiary-fixed-dim": "#ffb3ad",
+                        "surface-variant": "#2d3449",
+                        "on-secondary-container": "#00311f",
+                        "on-background": "#dae2fd",
+                        "inverse-primary": "#0053db",
+                        "on-surface-variant": "#c3c6d7",
+                        "error-container": "#93000a",
+                        "primary": "#b4c5ff",
+                        "primary-fixed": "#dbe1ff",
+                        "surface-dim": "#0b1326",
+                        "surface-bright": "#31394d",
+                        "on-secondary": "#003824",
+                        "on-secondary-fixed-variant": "#005236",
+                        "inverse-surface": "#dae2fd",
+                        "surface-container": "#171f33",
+                        "on-tertiary-fixed-variant": "#930013",
+                        "on-primary": "#002a78",
+                        "secondary-fixed": "#6ffbbe"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "fontFamily": {
+                        "headline": ["Inter"],
+                        "display": ["Inter"],
+                        "body": ["Inter"],
+                        "label": ["Inter"]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        body { font-family: 'Inter', sans-serif; }
+    </style>
+</head>
+<body class="bg-surface-dim text-on-surface h-screen flex flex-col relative overflow-hidden">
+<!-- Background Mock Content (To show it's an overlay) -->
+<div class="flex-1 p-6 blur-sm opacity-50 flex flex-col items-center justify-center pointer-events-none">
+<h1 class="text-display-lg font-bold text-primary tracking-tight mb-4">42</h1>
+<p class="text-body-lg text-on-surface-variant">Ana Sayaç</p>
+</div>
+<!-- Modal Overlay Backdrop -->
+<div class="fixed inset-0 bg-surface-lowest/80 backdrop-blur-xl z-40 flex items-end md:items-center justify-center p-0 md:p-6">
+<!-- Modal Sheet/Card -->
+<div class="bg-surface-container-highest w-full max-w-lg rounded-t-xl md:rounded-xl shadow-[0_20px_50px_rgba(6,14,32,0.5)] flex flex-col max-h-[870px] md:max-h-[716px] border border-outline-variant/15 transform transition-transform">
+<!-- Modal Header -->
+<div class="flex items-center justify-between px-6 py-5 bg-surface-container-low rounded-t-xl">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-primary text-xl">history</span>
+<h2 class="text-headline-md font-semibold text-on-surface tracking-tight">İşlem Geçmişi</h2>
+</div>
+<button class="p-2 rounded-lg text-on-surface-variant hover:text-on-surface hover:bg-surface-container transition-colors focus:outline-none focus:ring-2 focus:ring-primary/50">
+<span class="material-symbols-outlined">close</span>
+</button>
+</div>
+<!-- Modal Body (List of Activities) -->
+<div class="flex-1 overflow-y-auto p-4 space-y-3 custom-scrollbar">
+<!-- Activity Item: Artırıldı -->
+<div class="flex items-center justify-between p-4 bg-surface-container-low rounded-lg border border-outline-variant/10">
+<div class="flex items-center gap-4">
+<div class="w-10 h-10 rounded-full bg-secondary/10 flex items-center justify-center">
+<span class="material-symbols-outlined text-secondary text-[20px]">add</span>
+</div>
+<div>
+<p class="text-body-lg font-medium text-on-surface">Artırıldı</p>
+<p class="text-label-md text-on-surface-variant mt-0.5">14:25:30</p>
+</div>
+</div>
+<div class="text-right">
+<span class="text-headline-md font-bold text-secondary">+1</span>
+<p class="text-label-md text-on-surface-variant mt-0.5">Sonuç: 42</p>
+</div>
+</div>
+<!-- Activity Item: Azaltıldı -->
+<div class="flex items-center justify-between p-4 bg-surface-container-low rounded-lg border border-outline-variant/10">
+<div class="flex items-center gap-4">
+<div class="w-10 h-10 rounded-full bg-tertiary/10 flex items-center justify-center">
+<span class="material-symbols-outlined text-tertiary text-[20px]">remove</span>
+</div>
+<div>
+<p class="text-body-lg font-medium text-on-surface">Azaltıldı</p>
+<p class="text-label-md text-on-surface-variant mt-0.5">14:20:15</p>
+</div>
+</div>
+<div class="text-right">
+<span class="text-headline-md font-bold text-tertiary">-1</span>
+<p class="text-label-md text-on-surface-variant mt-0.5">Sonuç: 41</p>
+</div>
+</div>
+<!-- Activity Item: Artırıldı -->
+<div class="flex items-center justify-between p-4 bg-surface-container-low rounded-lg border border-outline-variant/10">
+<div class="flex items-center gap-4">
+<div class="w-10 h-10 rounded-full bg-secondary/10 flex items-center justify-center">
+<span class="material-symbols-outlined text-secondary text-[20px]">add</span>
+</div>
+<div>
+<p class="text-body-lg font-medium text-on-surface">Artırıldı</p>
+<p class="text-label-md text-on-surface-variant mt-0.5">14:15:00</p>
+</div>
+</div>
+<div class="text-right">
+<span class="text-headline-md font-bold text-secondary">+1</span>
+<p class="text-label-md text-on-surface-variant mt-0.5">Sonuç: 42</p>
+</div>
+</div>
+<!-- Activity Item: Sıfırlandı -->
+<div class="flex items-center justify-between p-4 bg-surface-container-low rounded-lg border border-outline-variant/10">
+<div class="flex items-center gap-4">
+<div class="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center">
+<span class="material-symbols-outlined text-primary text-[20px]">restart_alt</span>
+</div>
+<div>
+<p class="text-body-lg font-medium text-on-surface">Sıfırlandı</p>
+<p class="text-label-md text-on-surface-variant mt-0.5">10:00:00</p>
+</div>
+</div>
+<div class="text-right">
+<span class="text-headline-md font-bold text-primary">0</span>
+<p class="text-label-md text-on-surface-variant mt-0.5">Önceki: 120</p>
+</div>
+</div>
+<!-- Activity Item: Artırıldı -->
+<div class="flex items-center justify-between p-4 bg-surface-container-low rounded-lg border border-outline-variant/10 opacity-70">
+<div class="flex items-center gap-4">
+<div class="w-10 h-10 rounded-full bg-secondary/10 flex items-center justify-center">
+<span class="material-symbols-outlined text-secondary text-[20px]">add</span>
+</div>
+<div>
+<p class="text-body-lg font-medium text-on-surface">Artırıldı</p>
+<p class="text-label-md text-on-surface-variant mt-0.5">Dün, 18:45</p>
+</div>
+</div>
+<div class="text-right">
+<span class="text-headline-md font-bold text-secondary">+5</span>
+<p class="text-label-md text-on-surface-variant mt-0.5">Sonuç: 120</p>
+</div>
+</div>
+</div>
+<!-- Modal Footer -->
+<div class="p-6 bg-surface-container-low rounded-b-xl border-t border-surface-container">
+<button class="w-full flex items-center justify-center gap-2 py-3.5 px-4 bg-error-container/20 text-error hover:bg-error-container/30 hover:text-error-container active:bg-error-container/40 rounded-lg transition-colors font-medium tracking-wide focus:outline-none focus:ring-2 focus:ring-error/50">
+<span class="material-symbols-outlined text-[20px]">delete_sweep</span>
+<span>Geçmişi Temizle</span>
+</button>
+</div>
+</div>
+</div>
+</body></html>

@@ -1,0 +1,149 @@
+# Sayaç Uygulaması PRD
+
+## 1. Genel Bakış
+Bu proje, React 18 + Vite + TypeScript ile geliştirilecek basit ve etkileşimli bir sayaç uygulamasıdır. Kullanıcı sayacı artırabilir, azaltabilir, sıfırlayabilir, geçmiş işlemlerini bir modal içinde görüntüleyebilir ve uygulama temasını açık/koyu mod arasında geçiş yapabilir. Arayüz tamamen Türkçe olup, Stitch tasarım sistemindeki tüm ikon ve butonlar gerçek işlevselliğe sahip olacaktır.
+
+## 2. Hedefler
+1. Kullanıcıya sayaç değerini artırma, azaltma ve sıfırlama kontrolünü vermek.
+2. Her sayaç işleminin zaman damgası ile kaydedilmesi ve modalda sunulması.
+3. Açık ve koyu tema desteği ile kullanıcı deneyimini kişiselleştirmek.
+4. Tam klavye navigasyonu ve ekran okuyucu uyumu sağlamak.
+5. İlk yükleme süresinin 2 saniyenin altında olması.
+6. Mobil ve masaüstü tüm cihazlarda sorunsuz çalışmak.
+
+## 3. Tech Stack Detayı
+- Framework: React 18
+- Build: Vite
+- Styling: Tailwind CSS v3
+- State: useState + useReducer (counter state ve history)
+- Storage: localStorage (tema tercihi ve geçmiş kayıtları)
+- Icons: Lucide React
+- Language: TypeScript (strict mode)
+
+## 4. Fonksiyonel Gereksinimler
+
+### 4.1 Sayaç Kontrolü
+- Artır: Sayaç değerini +1 arttırır.
+- Azalt: Sayaç değerini -1 azaltır.
+- Sıfırla: Sayaç değerini 0 yapar ve kullanıcıdan onay istemez.
+- Her işlem geçmişe kaydedilir.
+
+### 4.2 Tema Ayarı
+- Açık/Koyu mod geçişi.
+- Tercih localStorage'da saklanır.
+- Sayfa yenilendiğinde son tercih uygulanır.
+- Varsayılan: sistem tercihi veya açık mod.
+
+### 4.3 Geçmiş Modalı
+- Tüm sayaç işlemleri (artır, azalt, sıfırla) zaman damgası ile kaydedilir.
+- Modal "İşlem Geçmişi" başlığı ile açılır.
+- Liste boşsa "Henüz işlem kaydı yok" mesajı gösterilir.
+- Temizle butonu ile tüm geçmiş silinebilir.
+- Modal kapanma: ESC tuşu, arka plan tıklama veya X butonu.
+
+### 4.4 Hata ve Uyarılar
+- Geçmiş temizleme: "Bu işlem geri alınamaz" uyarısı ile onay istenir.
+
+## 5. Veri Modeli
+
+### CounterState
+- value: number
+- history: HistoryItem[]
+- theme: 'light' | 'dark'
+
+### HistoryItem
+- id: string (timestamp + random)
+- action: 'increment' | 'decrement' | 'reset'
+- value: number (işlem sonrası değer)
+- timestamp: ISO string
+
+### localStorage Schema
+- key: `counter-app-v1`
+- value: JSON.stringify(CounterState)
+
+## 6. UI/UX Gereksinimleri
+
+### 6.1 Design System
+- **Aesthetic:** minimal
+- **Renk Paleti:**
+  - Light: Primary #2563EB, Secondary #64748B, Background #F8FAFC, Surface #FFFFFF, Text #0F172A, Border #E2E8F0, Success #10B981, Error #EF4444
+  - Dark: Background #0F172A, Surface #1E293B, Text #F1F5F9, Border #334155
+- **Tipografi:** Heading: Inter, Body: Inter
+- **Icon Library:** Lucide React
+
+### 6.2 Spacing & Components
+- Spacing: 4, 8, 12, 16, 24, 32, 48 px
+- Border radius: 8 px (butonlar), 12 px (kartlar), 16 px (modal)
+- Shadow: shadow-md (kartlar), shadow-lg (modal)
+- Buton: px-6 py-3, font-semibold, hover:scale-105 transition
+
+## 7. Non-Functional Requirements
+
+### 7.1 Performans
+- İlk yükleme < 2 saniye
+- Tema geçişi anında, animasyon 200ms
+- Bundle size hedefi < 150 KB (gzip)
+
+### 7.2 Erişilebilirlik (WCAG 2.1 AA)
+- Tüm butonlar aria-label ile tanımlı
+- Klavye ile tüm işlemler yapılabilir
+- Focus ring: ring-2 ring-primary ring-offset-2
+- Kontrast >= 4.5:1 metinlerde
+- Touch hedef >= 44x44 px
+
+### 7.3 Tarayıcı Desteği
+- Chrome 90+, Firefox 88+, Safari 14+, Edge 90+
+- iOS Safari 14+, Android Chrome 90+
+- Responsive: 320px+ → 1920px+
+
+## 8. Proje Yapısı
+
+```
+src/
+├── components/
+│   ├── CounterControls.tsx
+│   ├── HistoryModal.tsx
+│   ├── ThemeToggle.tsx
+│   └── Layout.tsx
+├── screens/
+│   └── AnaSayfa.tsx
+├── hooks/
+│   └── useCounter.ts
+├── utils/
+│   └── storage.ts
+├── types/
+│   └── counter.ts
+├── App.tsx
+└── main.tsx
+```
+
+## 9. Window State
+
+```
+window.app = {
+  state: 'idle',
+  counterValue: 0,
+  historyLength: 0,
+  theme: 'light',
+  modalOpen: false
+}
+```
+
+## 10. Ekranlar
+
+| # | Ekran Adı | Tür | Açıklama |
+|---|-----------|-----|----------|
+| 1 | Ana Sayfa | screen | Sayaç değeri, artır/azalt/sıfırla butonları, tema ve geçmiş ikonları |
+| 2 | İşlem Geçmişi Modalı | modal | Geçmiş sayaç işlemlerinin listelendiği modal |
+| 3 | Tema Ayarları | overlay | Tema geçişi anlık overlay/dropdown davranışı |
+
+Generate a SEPARATE screen design for EVERY page, view, modal, dialog, tab panel, and settings screen described in this PRD. Do NOT skip ANY screen — even if it seems minor.
+
+MANDATORY SCREENS:
+- If the PRD mentions "settings" or "ayarlar" → generate a Settings screen
+- If the PRD mentions tabs or bottom navigation → generate EACH tab view as a separate screen
+- If the PRD mentions modals (statistics, help, share, confirmation) → generate each as a separate screen
+- If the PRD mentions error states, empty states, loading states → generate those too
+- Generate at least as many screens as there are distinct views/pages/modals in the PRD
+
+All visible text must be in Turkish. Use a dark, modern theme.

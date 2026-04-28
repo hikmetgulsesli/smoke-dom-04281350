@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="tr"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Tema Ayarları</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              "colors": {
+                      "on-secondary-fixed": "#002113",
+                      "tertiary-container": "#cf2c30",
+                      "on-error": "#690005",
+                      "on-tertiary-container": "#ffecea",
+                      "on-primary-fixed": "#00174b",
+                      "secondary": "#4edea3",
+                      "primary-fixed-dim": "#b4c5ff",
+                      "on-tertiary": "#68000a",
+                      "error": "#ffb4ab",
+                      "background": "#0b1326",
+                      "on-primary-container": "#eeefff",
+                      "on-primary-fixed-variant": "#003ea8",
+                      "surface-container-low": "#131b2e",
+                      "inverse-on-surface": "#283044",
+                      "surface-container-high": "#222a3d",
+                      "tertiary": "#ffb3ad",
+                      "secondary-fixed-dim": "#4edea3",
+                      "on-surface": "#dae2fd",
+                      "outline": "#8d90a0",
+                      "outline-variant": "#434655",
+                      "primary-container": "#2563eb",
+                      "on-tertiary-fixed": "#410004",
+                      "surface-tint": "#b4c5ff",
+                      "secondary-container": "#00a572",
+                      "surface-container-highest": "#2d3449",
+                      "on-error-container": "#ffdad6",
+                      "surface": "#0b1326",
+                      "tertiary-fixed": "#ffdad7",
+                      "surface-container-lowest": "#060e20",
+                      "tertiary-fixed-dim": "#ffb3ad",
+                      "surface-variant": "#2d3449",
+                      "on-secondary-container": "#00311f",
+                      "on-background": "#dae2fd",
+                      "inverse-primary": "#0053db",
+                      "on-surface-variant": "#c3c6d7",
+                      "error-container": "#93000a",
+                      "primary": "#b4c5ff",
+                      "primary-fixed": "#dbe1ff",
+                      "surface-dim": "#0b1326",
+                      "surface-bright": "#31394d",
+                      "on-secondary": "#003824",
+                      "on-secondary-fixed-variant": "#005236",
+                      "inverse-surface": "#dae2fd",
+                      "surface-container": "#171f33",
+                      "on-tertiary-fixed-variant": "#930013",
+                      "on-primary": "#002a78",
+                      "secondary-fixed": "#6ffbbe"
+              },
+              "borderRadius": {
+                      "DEFAULT": "0.25rem",
+                      "lg": "0.5rem",
+                      "xl": "0.75rem",
+                      "full": "9999px"
+              },
+              "fontFamily": {
+                      "headline": ["Inter"],
+                      "display": ["Inter"],
+                      "body": ["Inter"],
+                      "label": ["Inter"]
+              }
+            }
+          }
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+    </style>
+</head>
+<body class="bg-surface-dim text-on-surface font-body antialiased min-h-screen flex flex-col relative overflow-hidden">
+<!-- TopAppBar Structure -->
+<header class="fixed top-0 left-0 w-full z-40 flex items-center justify-between px-6 h-16 bg-[#0b1326]/80 backdrop-blur-xl shadow-2xl shadow-[#060e20]/50">
+<div class="text-lg font-bold text-[#b4c5ff] font-['Inter'] font-medium tracking-tight">
+            Sayaç Uygulaması
+        </div>
+<div class="flex items-center gap-2">
+<button class="text-[#b4c5ff]/60 hover:bg-[#161d2e] transition-colors duration-300 active:scale-95 transition-transform p-2.5 rounded-full flex items-center justify-center">
+<span class="material-symbols-outlined">history</span>
+</button>
+<!-- Active state for the trigger button to show it's selected -->
+<button class="text-[#b4c5ff] bg-[#161d2e] hover:bg-[#161d2e] transition-colors duration-300 active:scale-95 transition-transform p-2.5 rounded-full flex items-center justify-center relative">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">dark_mode</span>
+</button>
+</div>
+</header>
+<!-- Simulated Content Area (Blurred/Dimmed to focus on overlay) -->
+<main class="flex-1 pt-24 px-6 flex flex-col items-center justify-center opacity-30 pointer-events-none">
+<div class="bg-surface-container rounded-xl p-8 flex flex-col items-center gap-4 w-full max-w-sm">
+<div class="text-on-surface-variant font-medium tracking-wide">AKTİF SAYAÇ</div>
+<div class="text-7xl font-display font-bold text-primary tracking-tighter">1,024</div>
+</div>
+</main>
+<!-- Overlay Backdrop (Subtle interaction blocking layer) -->
+<div class="fixed inset-0 z-40 bg-surface-container-lowest/10 backdrop-blur-[2px]"></div>
+<!-- Theme Settings Dropdown Overlay -->
+<div class="fixed top-20 right-6 w-[240px] bg-surface-container-highest/85 backdrop-blur-xl rounded-xl shadow-[0_24px_50px_-12px_rgba(6,14,32,0.9)] ring-1 ring-outline-variant/30 z-50 overflow-hidden flex flex-col py-2 transform origin-top-right">
+<!-- Dropdown Header (Optional contextual grounding) -->
+<div class="px-4 py-2 mb-1">
+<span class="text-[10px] font-semibold text-on-surface-variant uppercase tracking-widest">Görünüm</span>
+</div>
+<!-- Option: Açık Mod -->
+<button class="w-full flex items-center justify-between px-4 py-3 hover:bg-surface-container-low/50 transition-colors duration-200 group outline-none focus:bg-surface-container-low">
+<div class="flex items-center gap-3 text-on-surface-variant group-hover:text-on-surface transition-colors">
+<span class="material-symbols-outlined text-[20px]">light_mode</span>
+<span class="font-medium text-sm tracking-tight">Açık Mod</span>
+</div>
+</button>
+<!-- Option: Koyu Mod (Active Selection) -->
+<!-- Utilizing Tonal Layering: primary container tint on top of surface-container-highest -->
+<button class="w-full flex items-center justify-between px-4 py-3 bg-primary/10 hover:bg-primary/15 transition-colors duration-200 relative overflow-hidden outline-none">
+<div class="flex items-center gap-3 text-primary">
+<span class="material-symbols-outlined text-[20px]" style="font-variation-settings: 'FILL' 1;">dark_mode</span>
+<span class="font-medium text-sm tracking-tight">Koyu Mod</span>
+</div>
+<!-- Active Checkmark -->
+<span class="material-symbols-outlined text-primary text-[18px]">check</span>
+</button>
+<!-- Option: Sistem Tercihi -->
+<button class="w-full flex items-center justify-between px-4 py-3 hover:bg-surface-container-low/50 transition-colors duration-200 group outline-none focus:bg-surface-container-low">
+<div class="flex items-center gap-3 text-on-surface-variant group-hover:text-on-surface transition-colors">
+<span class="material-symbols-outlined text-[20px]">brightness_auto</span>
+<span class="font-medium text-sm tracking-tight">Sistem Tercihi</span>
+</div>
+</button>
+</div>
+</body></html>
